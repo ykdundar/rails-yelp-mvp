@@ -1,0 +1,13 @@
+<ul>
+    <% @restaurants.each do |restaurant| %>
+      <li>
+         <%= restaurant.name %>
+      </li>
+       <%= link_to "show restaurant", restaurant_path(restaurant.id) %>
+       <%= link_to "delete restaurant", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{restaurant.name}?"} %>
+    <% end %>
+  </ul>
+
+ <%= link_to new_restaurant_path do %>
+    <i class="fa-solid fa-plus"></i> Add a new restaurant
+  <% end %>
